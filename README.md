@@ -8,14 +8,3 @@ ISO, mida installimisel kasutati, oli Debian 8.10 netinstall. Link ISOle, mida k
 ```
 https://cdimage.debian.org/cdimage/archive/8.10.0/amd64/iso-cd/debian-8.10.0-amd64-netinst.iso
 ```
-
-## GIT install
-Järgmisena tuleb arvutisse paigaldada GIT. Selleks kõigepealt teeme masina uuendused
-```
-apt-get update
-apt-get upgrade
-```
-Kui see on tehtud, siis installime GITi
-```
-apt-get install git
-```
