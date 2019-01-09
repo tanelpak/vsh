@@ -1,5 +1,5 @@
 # vsh Dokumentatsioon
-Tegemist on Veebiserverite Hlduse aine dokumentatsiooniga. 
+Tegemist on Veebiserverite Halduse aine dokumentatsiooniga. 
 ## Masina loomine 
 Loodud on virtuaalmasin VmBoxis, masina nimi vsh-tanel.
 Füüsiline arvuti, mida kasutati, on number 5.
