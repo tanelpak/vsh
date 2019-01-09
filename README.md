@@ -1,4 +1,4 @@
-# vsh Dokumentatsioon
+# Veebiserverite haldus
 Tegemist on Veebiserverite Halduse aine dokumentatsiooniga. 
 ## Masina loomine 
 Loodud on virtuaalmasin VmBoxis, masina nimi vsh-tanel.
