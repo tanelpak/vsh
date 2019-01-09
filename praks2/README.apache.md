@@ -1,7 +1,9 @@
 # Apache2 paigaldus
+Kõigepealt uuendused masinas
 ```
 apt-get update && apt-get upgrade
 ```
+Seejärel installime apache2
 ```
 apt-get install apache2
 ```
