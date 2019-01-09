@@ -8,4 +8,3 @@ ISO, mida installimisel kasutati, oli Debian 8.10 netinstall. Link ISOle, mida k
 ```
 https://cdimage.debian.org/cdimage/archive/8.10.0/amd64/iso-cd/debian-8.10.0-amd64-netinst.iso
 ```
-
