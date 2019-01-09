@@ -19,3 +19,5 @@ Kui see on tehtud, siis installime GITi
 ```
 apt-get install git
 ```
+
+## Apache paigaldus ja seadistamine
