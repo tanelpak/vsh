@@ -10,7 +10,7 @@ https://cdimage.debian.org/cdimage/archive/8.10.0/amd64/iso-cd/debian-8.10.0-amd
 ```
 
 ## GIT install
-Järgmisena tuleb arvutisse paigaldada GIT. Selleks kõigepealt teeme masina update
+Järgmisena tuleb arvutisse paigaldada GIT. Selleks kõigepealt teeme masina uuendused
 ```
 apt-get update
 apt-get upgrade
