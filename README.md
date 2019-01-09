@@ -1,6 +1,6 @@
 # vsh Dokumentatsioon
-## Masina loomine
 Tegemist on Veebiserverite Hlduse aine dokumentatsiooniga. 
+## Masina loomine 
 Loodud on virtuaalmasin VmBoxis, masina nimi vsh-tanel.
 Füüsiline arvuti, mida kasutati, on number 5.
 Virtuaalmasina IP on 172.23.13.41.
