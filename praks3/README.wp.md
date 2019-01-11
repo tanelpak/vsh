@@ -55,5 +55,10 @@ http://172.23.13.41/phpmyadmin/
 ```
 Sisse logimisel kasutame parool "qwerty" ja kasutajanime "root"  
 Töötavast phpmyadminist on pilt githubis /vsh/praks3/Töötavphpmyadmin.png
-
-
+## PHP töö kontroll ja skript
+PHP töö kontrollimiseks kirjutasime /var/www/html kausta faili nimega "test.php"  
+Faili sisu
+```
+<?php phpinfo(); ?>
+```
+Kaustas /vsh/praks3 on pilt väljundist graafilises liideses nimega phpinfo.png
