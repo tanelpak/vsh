@@ -41,3 +41,18 @@ apt-get install mysql-community-server
 ```
 Kui failid alla tõmmatud, saame kohe määrata mysql root parooli.  
 Parooliks määratud "qwerty"
+## PHPMYADMIN
+Phpmyadmini kasutamiseks teeme uuendused ja installime phpmyadmini
+```
+apt-get update
+apt-get upgrade
+apt-get install phpmyadmin
+```
+phpmyadmini installi käigus määrame sisse logimiseks parool "qwerty"  
+Kui see tehtud, logime läbi graafilise liidese sisse aadressil
+```
+http://172.23.13.41/phpmyadmin/
+```
+Sisse logimisel kasutame parool "qwerty" ja kasutajanime "root"
+
+
