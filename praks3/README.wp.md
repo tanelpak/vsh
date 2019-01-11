@@ -62,3 +62,33 @@ Faili sisu
 <?php phpinfo(); ?>
 ```
 Kaustas /vsh/praks3 on pilt väljundist graafilises liideses nimega phpinfo.png
+## PHP tugi
+Et võimaldada tugi, tegin kõigepealt vastavasse kohta tugi.php faili
+```
+nano /var/www/public_html/tugi.php
+```
+Faili sisu :
+```
+<html>
+ <head>
+  <title>PHP tugi</title>
+ </head>
+ <body>
+ <?php echo '<p>Tugi</p>'; ?> 
+ </body>
+</html>
+```
+Seejärel tee apachele restart
+```
+restart service apache2
+```
+Seejärel muutisn apache2 confis commentiga ära kõik usermodule read  
+Faili asukoht :
+```
+/etc/apache2/mods-enabled/php7.2.conf
+```
+Seejärel apachele restart
+```
+service apache2 restart
+```
+Pildid väljundist on /vsh/praks3 kaustas nimedega tugi1.png ja tugi2.png
