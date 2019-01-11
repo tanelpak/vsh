@@ -53,6 +53,7 @@ Kui see tehtud, logime läbi graafilise liidese sisse aadressil
 ```
 http://172.23.13.41/phpmyadmin/
 ```
-Sisse logimisel kasutame parool "qwerty" ja kasutajanime "root"
+Sisse logimisel kasutame parool "qwerty" ja kasutajanime "root"  
+Töötavast phpmyadminist on pilt githubis /vsh/praks3/Töötavphpmyadmin.png
 
 
