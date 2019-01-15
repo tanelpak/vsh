@@ -1,1 +1,1 @@
-##SSL sertifikaadi lisamine
+SSL sertifikaadi lisamine
