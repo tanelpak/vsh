@@ -1,4 +1,4 @@
-## Masinad
+# Masinad
 
 ## dns - Linux, Ubuntu, ilma graafikat, standart system utilities ja ssh
 1 CPU
