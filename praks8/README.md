@@ -3,7 +3,7 @@ Allpool kirjeldatakse, kuidas paigaldata ühte serverisse mitu veebilehte. Selle
 1) DNS server
 2) WEB server , kus töötab wordpress ning dokuwiki
 3) Klient testimiseks  
-Samuti on olemas pildid töötava dokuwiki ning wordpressi kohta. Pildile on kaasatud ka vastava lehe apache conf ning dnsi tanel.loc conf
+Samuti on olemas pildid töötava dokuwiki ning wordpressi kohta (/vsh/praks8/ vastavalt dokuwiki.png ning wordpress.png). Pildile on kaasatud ka vastava lehe apache conf ning dnsi tanel.loc conf
 
 ## Masinad
 
