@@ -16,5 +16,15 @@ WIN10, testimiseks
 16 GB RAM   
 100 GB HDD  
   
-## Apache, PHP, MYsql
-Esmalt, et alustada tööd, paigaldame "apache masinale" apache, mysqli ja php.  
+## Apache, PHP, MySQL
+Esmalt, et alustada tööd, paigaldame "apache" masinale apache, MySQLi ja PHP.  
+Apache paigaldamine :  
+```
+sudo apt-get update  
+sudo apt-get install apache2  
+```
+MySQLi paigaldamine
+```
+sudo apt-get install mysql-server  
+mysql_secure_installation
+```
