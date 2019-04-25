@@ -15,3 +15,6 @@ WIN10, testimiseks
 4 CPU  
 16 GB RAM   
 100 GB HDD  
+  
+## Apache, PHP, MYsql
+Esmalt, et alustada tööd, paigaldame "apache masinale" apache, mysqli ja php.  
