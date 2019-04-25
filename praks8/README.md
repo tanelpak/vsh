@@ -1,3 +1,10 @@
+## Töö
+Allpool kirjeldatakse, kuidas paigaldata ühte serverisse mitu veebilehte. Selleks tehti kolm masinat : 
+1) DNS server
+2) WEB server , kus töötab wordpress ning dokuwiki
+3) Klient testimiseks  
+Samuti on olemas pildid töötava dokuwiki ning wordpressi kohta. Pildile on kaasatud ka vastava lehe apache conf ning dnsi tanel.loc conf
+
 ## Masinad
 
 #### dns - 
@@ -309,3 +316,31 @@ iface ens160 inet static
         gateway 192.168.16.1
         nameserver 192.168.16.19
 ```
+## Wordpressi paigaldus
+Kuidas paigaldada wordpressi, näeb VSH praks 5 kaustast.
+## Klient :
+Samuti peame määrama kliendi masinas, millist DNSi kasutada. Selle kohta on /praks8 kaustas pilt "win-interfaces"
+## Dokuwiki paigaldus
+Dokuwiki paigaldamisel kasutati järgmist õpetust :  
+https://www.vultr.com/docs/how-to-install-dokuwiki-on-ubuntu-16-04-lts  
+Paigaldamine algas php pakettide paigaldamisega : 
+```
+sudo apt install -y php7.0 php7.0-cli php7.0-fpm php7.0-gd php7.0-xml php7.0-zip
+```
+Apache confis "sites-available" copisime eelenvalt tehtud "wordpress.confi" samasse kasuta ning nimetasime ümber "dokuwiki.conf"  
+Dokuwiki confis muutsime kirjed, mis sisaldasid wordpressi ümber dokuwikiks (asukoht, servername wiki.tanel.loc)  
+Seejärel tegime dokuwiki jaoks kausta, tõmbasime dokuwiki alla, pakkisime lahti.
+```
+sudo mkdir -p /var/www/dokuwiki
+cd /var/www/dokuwiki
+```
+```
+wget https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz
+```
+```
+tar xvf dokuwiki-stable.tgz
+```
+```
+sudo chown -R www-data:www-data /var/www/dokuwiki
+```
+Dokuwiki töötamist kontrollime läbi kliendi http://wiki.tanel.loc
