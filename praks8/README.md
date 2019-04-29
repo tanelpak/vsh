@@ -444,3 +444,19 @@ Lõpetuseks apachele restart
 sudo service apache2 restart
 ```
 Seejärel saame läbi kliendi testida tulemust. Vastavasisulised pildid on praks8 kasutas nimedega wp.tanel.loc_https ja wiki.tanel.loc_https
+
+## PHPMYADMIN
+Järgmiseks paigaldame webserver masinale phpmyadmini.  
+Selleks uuendame masina ja installime phpmyadmini ning siis apachele restart
+```
+sudo apt update
+sudo apt install phpmyadmin php-mbstring php-gettext
+sudo phpenmod mbstring
+sudo systemctl restart apache2
+```
+Seejärel saame phpmyadmini paneeli sisse logida kasutades kliendi masina brauserit. Selleks kirjutama IP aadressi ja /phpmyadmin
+```
+http://192.168.16.56/phpmyadmin
+```
+Sisse logides kasutame username "root" ja parool "qwerty" (parooli määrasime installi käigus)  
+Töötavast phpmyadminist pilt praks8 kaustas nimega "phpmyadmin"
