@@ -344,3 +344,103 @@ tar xvf dokuwiki-stable.tgz
 sudo chown -R www-data:www-data /var/www/dokuwiki
 ```
 Dokuwiki töötamist kontrollime läbi kliendi http://wiki.tanel.loc
+
+  
+    
+## SSL Ühenduse loomine
+
+Järgnevalt lisame ssl sertifikaadid, et ühendus oleks turvaline.
+
+### Sertifikaadid
+Esmalt peame looma asukohad, kuhu me sertifikaadid paigutame. 
+```
+mkdir -p /etc/apache2/ssl/wp.tanel.loc
+mkdir -p /etc/apache2/ssl/wiki.tanel.loc
+```
+Lubame SSL moodule ning siis apachele restart
+```
+sudo a2enmod ssl
+sudo service apache2 restart
+```
+Loome sertifikaadid eelnevalt loodud kohtadesse. Selleks tuleb mõlemale (nii wordpress ehk wp ja dokuwikile ehk wiki) folderile teha eraldi cert.
+```
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/apache2/ssl/wp.tanel.loc/apache-selfsigned.key –out /etc/apache2/ssl/wp.tanel.loc/apache-selfsigned.crt  
+```
+```
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/apache2/ssl/wiki.tanel.loc/apache-selfsigned.key –out /etc/apache2/ssl/wiki.tanel.loc/apache-selfsigned.crt  
+```
+See käivitab väljundi, kus on vaja määrata põhiandmed. Common Name kohale määrame vastava sertifikaadi aadressi, nt esimese puhul wp.tanel.loc
+```
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:EE
+State or Province Name (full name) [Some-State]:Eesti
+Locality Name (eg, city) []:Tartu
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:Awesome Inc
+Organizational Unit Name (eg, section) []:Dept of Merriment
+Common Name (e.g. server FQDN or YOUR name) []:wp.tanel.loc                
+Email Address []:webmaster@awesomeinc.com
+```
+### Virtual Hosts
+Järgmiseks peame looma hostid, kus määrame ära veebilehe aadressi ja certi asukoha. See tuleb teha taas vastavalt mõlemale lehele eraldi  
+Faili peavad lõppema .conf lõuga, muidu ei tunne apache neid hiljem ära
+```
+sudo nano /etc/apache2/sites-available/wiki.conf
+sudo nano /etc/apache2/sites-available/wp.conf
+```
+Failide sisu on allpool kirjeldatud. DocumentRoot peab olema leheküle folder, Servername vastavalt lehe aadress ja SSLCertificateFile ja KeyFile peavad olema eelnevalt loodud sertifikaatide asukohad!
+```
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+        ServerName example.com
+        DocumentRoot /var/www
+
+</VirtualHost>
+
+
+<IfModule mod_ssl.c>
+<VirtualHost *:443>
+
+        ServerAdmin webmaster@localhost
+        ServerName example.com
+        DocumentRoot /var/www
+
+        #   SSL Engine Switch:
+        #   Enable/Disable SSL for this virtual host.
+        SSLEngine on
+
+        #   A self-signed (snakeoil) certificate can be created by installing
+        #   the ssl-cert package. See
+        #   /usr/share/doc/apache2.2-common/README.Debian.gz for more info.
+        #   If both key and certificate are stored in the same file, only the
+        #   SSLCertificateFile directive is needed.
+        SSLCertificateFile /etc/apache2/ssl/example.com/apache.crt
+        SSLCertificateKeyFile /etc/apache2/ssl/example.com/apache.key
+</VirtualHost>
+
+</IfModule>
+```
+
+### Port
+Järgmisena teeme ports.conf failis ühe muudatuse, täpsemalt lisame allpool toodud rea 
+```
+sudo nano /etc/apache2/ports.conf 
+```
+```
+NameVirtualHost *:443
+```
+Siis aktiveerimine hostid eelnevalt loodud confi failide abil
+```
+sudo a2ensite wp.conf
+sudo a2ensite wiki.conf
+```
+Lõpetuseks apachele restart 
+```
+sudo service apache2 restart
+```
+Seejärel saame läbi kliendi testida tulemust. Vastavasisulised pildid on praks8 kasutas nimedega wp.tanel.loc_https ja wiki.tanel.loc_https
